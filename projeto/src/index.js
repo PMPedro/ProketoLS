@@ -8,10 +8,24 @@ import reportWebVitals from './reportWebVitals';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-      <div className={"tab1"}>
+      <div className={"intro"}>
             <App />
-            <Button />
       </div>
+    <div className={"tabuleiros"}>
+        <div className={"grid-container"}>
+            <div className={"grid"}> <Button /> </div>
+            <div className={"grid"}> <Button /> </div>
+            <div className={"grid"}> <Button /> </div>
+            <div className={"grid"}> <Button /> </div>
+            <div className={"grid"}> <Button /> </div>
+            <div className={"grid"}> <Button /> </div>
+            <div className={"grid"}> <Button /> </div>
+            <div className={"grid"}> <Button /> </div>
+            <div className={"grid"}> <Button /> </div>
+
+        </div>
+    </div>
+
   </React.StrictMode>
 );
 

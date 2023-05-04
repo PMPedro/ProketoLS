@@ -9,7 +9,7 @@ function App() {
         <title>Pag</title>
       </head>
       <body>
-          OLA
+          The Ultimate Tic-Tac-Toe!
 
       </body>
    </html>
