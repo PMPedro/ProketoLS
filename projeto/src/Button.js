@@ -18,11 +18,6 @@ function Button(props) {
         tabid = props.id
         console.log(tabid)
 
-//        if(props.id === "tab1") { objetoTabId = document.getElementById("t1"); }
-  //      console.log(document.getElementById(objetoTabId))
-
-
-
         buttonId = event.target.id
         qualUser = user%2;
 
@@ -32,6 +27,57 @@ function Button(props) {
         }else if(qualUser === 1) {
             event.target.textContent = "O"
             event.target.disabled = true
+        }
+        checkWinner()
+    }
+
+    function winner (props, a) {
+
+        let tab = props.id ;
+        let helper;
+        if(tab ==="tab1"){
+            helper = document.getElementById("t1")
+            helper.textContent = a;
+        }
+
+        if(tab ==="tab2"){
+            helper = document.getElementById("t2")
+            helper.textContent = a;
+        }
+
+        if(tab ==="tab3"){
+            helper = document.getElementById("t3")
+            helper.textContent = a;
+        }
+
+        if(tab ==="tab4"){
+            helper = document.getElementById("t4")
+            helper.textContent = a;
+        }
+
+        if(tab ==="tab5"){
+            helper = document.getElementById("t5")
+            helper.textContent = a;
+        }
+
+        if(tab ==="tab6"){
+            helper = document.getElementById("t6")
+            helper.textContent = a;
+        }
+
+        if(tab ==="tab7"){
+            helper = document.getElementById("t7")
+            helper.textContent = a;
+        }
+
+        if(tab ==="tab8"){
+            helper = document.getElementById("t8")
+            helper.textContent = a;
+        }
+
+        if(tab ==="tab9"){
+            helper = document.getElementById("t9")
+            helper.textContent = a;
         }
     }
 
@@ -47,44 +93,99 @@ function Button(props) {
         let bt8 = document.getElementById("bt8");
         let bt9 = document.getElementById("bt9");
 
+
+
         //ganhar em linha
-        if((bt1.textContent === "X" && bt2.textContent === "X" && bt3.textContent === "X" ) || (bt1.textContent === "O" && bt2.textContent === "O" && bt3.textContent === "O" ))
+        if(bt1.textContent === "X" && bt2.textContent === "X" && bt3.textContent === "X" )
         { console.log("Winner");
+            winner(props, "X")
             return true;
         }
-        if((bt4.textContent === "X" && bt5.textContent === "X" && bt6.textContent === "X" ) || (bt4.textContent === "O" && bt5.textContent === "O" && bt6.textContent === "O" ))
+
+        if(bt4.textContent === "X" && bt5.textContent === "X" && bt6.textContent === "X"   )
         { console.log("Winner");
-            return true ;
+            winner(props,"X")
+            return true;
         }
-        if((bt7.textContent === "X" && bt8.textContent === "X" && bt9.textContent === "X" ) || (bt7.textContent === "O" && bt8.textContent === "O" && bt9.textContent === "O" ))
+
+        if((bt7.textContent === "X" && bt8.textContent === "X" && bt9.textContent === "X" ))
         { console.log("Winner");
+            winner(props,"X")
+            return true;
+        }
+        if(bt7.textContent === "O" && bt8.textContent === "O" && bt9.textContent === "O" ) {
+            console.log("Winner");
+            winner(props,"O")
+            return true;
+        }
+        if(bt4.textContent === "O" && bt5.textContent === "O" && bt6.textContent === "O") {
+            console.log("Winner");
+            winner(props,"O")
+            return true;
+        }
+        if( bt1.textContent === "O" && bt2.textContent === "O" && bt3.textContent === "O" ){
+            console.log("Winner");
+            winner(props,"O")
             return true;
         }
 
         //ganhar em coluna
-        if((bt1.textContent === "X" && bt4.textContent === "X" && bt7.textContent === "X" ) || (bt1.textContent === "O" && bt4.textContent === "O" && bt7.textContent === "O" ))
+        if(bt1.textContent === "X" && bt4.textContent === "X" && bt7.textContent === "X" )
         { console.log("Winner");
+            winner(props,"X")
             return true;
         }
-        if((bt2.textContent === "X" && bt5.textContent === "X" && bt8.textContent === "X" ) || (bt2.textContent === "O" && bt5.textContent === "O" && bt8.textContent === "O" ))
+        if(bt2.textContent === "X" && bt5.textContent === "X" && bt8.textContent === "X" )
         { console.log("Winner");
+            winner(props,"X")
             return true;
         }
-        if((bt3.textContent === "X" && bt6.textContent === "X" && bt9.textContent === "X" ) || (bt3.textContent === "O" && bt6.textContent === "O" && bt9.textContent === "O" ))
+        if(bt3.textContent === "X" && bt6.textContent === "X" && bt9.textContent === "X" )
         { console.log("Winner");
+            winner(props,"X")
+            return true;
+        }
+
+        if(bt1.textContent === "O" && bt4.textContent === "O" && bt7.textContent === "O" ) {
+            console.log("Winner");
+            winner(props,"O")
+            return true;
+        }
+        if(bt2.textContent === "O" && bt5.textContent === "O" && bt8.textContent === "O" ) {
+            console.log("Winner");
+            winner(props,"O")
+            return true;
+        }
+        if (bt3.textContent === "O" && bt6.textContent === "O" && bt9.textContent === "O" ) {
+            console.log("Winner");
+            winner(props,"O")
             return true;
         }
 
         //ganhar nas verticais
-        if((bt1.textContent === "X" && bt5.textContent === "X" && bt9.textContent === "X" ) || (bt1.textContent === "O" && bt5.textContent === "O" && bt9.textContent === "O" ))
-        { console.log("Winner");
+        if(bt1.textContent === "X" && bt5.textContent === "X" && bt9.textContent === "X" )
+        {  console.log("Winner");
+            winner(props,"X")
             return true;
         }
-        if((bt3.textContent === "X" && bt5.textContent === "X" && bt7.textContent === "X" ) || (bt3.textContent === "O" && bt5.textContent === "O" && bt7.textContent === "O" ))
-        { console.log("Winner");
+        if(bt3.textContent === "X" && bt5.textContent === "X" && bt7.textContent === "X" )
+        {  console.log("Winner");
+            winner(props,"X")
+            return true;
+        }
+
+        if(bt1.textContent === "O" && bt5.textContent === "O" && bt9.textContent === "O" ) {
+            console.log("Winner");
+            winner(props,"O")
+            return true;
+        }
+        if(bt3.textContent === "O" && bt5.textContent === "O" && bt7.textContent === "O" ){
+            console.log("Winner");
+            winner(props,"O")
             return true;
         }
     }
+
 
   return (
     <div className='Button'>
