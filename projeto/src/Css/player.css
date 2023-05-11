@@ -1,0 +1,6 @@
+.player input {
+    background-color: black;
+    border: none;
+    border-bottom: 2px solid yellow;
+    color: white;
+}

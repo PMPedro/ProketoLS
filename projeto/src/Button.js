@@ -16,7 +16,7 @@ function Button(props) {
     function XouO (event) {
         user ++;
         tabid = props.id
-        console.log(tabid)
+
 
         buttonId = event.target.id
         qualUser = user%2;
@@ -28,161 +28,199 @@ function Button(props) {
             event.target.textContent = "O"
             event.target.disabled = true
         }
-        checkWinner()
+        console.log("play detected")
+        checkWinner(props)
     }
 
-    function winner (props, a) {
+    function checkWinner (props) {
 
-        let tab = props.id ;
-        let helper;
-        if(tab ==="tab1"){
-            helper = document.getElementById("t1")
-            helper.textContent = a;
-        }
+        let idgetter = props.id;
+        let parentid;
 
-        if(tab ==="tab2"){
-            helper = document.getElementById("t2")
-            helper.textContent = a;
-        }
+        if(idgetter === "tab1") {   parentid = document.getElementById("t1")    }
+        if(idgetter === "tab2") {   parentid = document.getElementById("t2")    }
+        if(idgetter === "tab3") {   parentid = document.getElementById("t3")    }
+        if(idgetter === "tab4") {   parentid = document.getElementById("t4")    }
+        if(idgetter === "tab5") {   parentid = document.getElementById("t5")    }
+        if(idgetter === "tab6") {   parentid = document.getElementById("t6")    }
+        if(idgetter === "tab7") {   parentid = document.getElementById("t7")    }
+        if(idgetter === "tab8") {   parentid = document.getElementById("t8")    }
+        if(idgetter === "tab9") {   parentid = document.getElementById("t9")    }
 
-        if(tab ==="tab3"){
-            helper = document.getElementById("t3")
-            helper.textContent = a;
-        }
+        let bt1 = parentid.querySelector("#bt1");
+        let bt2 = parentid.querySelector("#bt2");
+        let bt3 = parentid.querySelector("#bt3");
+        let bt4 = parentid.querySelector("#bt4");
+        let bt5 = parentid.querySelector("#bt5");
+        let bt6 = parentid.querySelector("#bt6");
+        let bt7 = parentid.querySelector("#bt7");
+        let bt8 = parentid.querySelector("#bt8");
+        let bt9 = parentid.querySelector("#bt9");
 
-        if(tab ==="tab4"){
-            helper = document.getElementById("t4")
-            helper.textContent = a;
-        }
 
-        if(tab ==="tab5"){
-            helper = document.getElementById("t5")
-            helper.textContent = a;
-        }
+        //console.log("hier " + box + " " + props.id);
 
-        if(tab ==="tab6"){
-            helper = document.getElementById("t6")
-            helper.textContent = a;
-        }
-
-        if(tab ==="tab7"){
-            helper = document.getElementById("t7")
-            helper.textContent = a;
-        }
-
-        if(tab ==="tab8"){
-            helper = document.getElementById("t8")
-            helper.textContent = a;
-        }
-
-        if(tab ==="tab9"){
-            helper = document.getElementById("t9")
-            helper.textContent = a;
-        }
-    }
-
-    function checkWinner () {
-
-        let bt1 = document.getElementById("bt1");
-        let bt2 = document.getElementById("bt2");
-        let bt3 = document.getElementById("bt3");
-        let bt4 = document.getElementById("bt4");
-        let bt5 = document.getElementById("bt5");
-        let bt6 = document.getElementById("bt6");
-        let bt7 = document.getElementById("bt7");
-        let bt8 = document.getElementById("bt8");
-        let bt9 = document.getElementById("bt9");
+        console.log("Jogada-> " + props.id + "tab(exemplo, para saber qual e) " + bt1);
+        console.log(props.target)
+        //bt1.textContent = "P"
 
 
 
         //ganhar em linha
         if(bt1.textContent === "X" && bt2.textContent === "X" && bt3.textContent === "X" )
         { console.log("Winner");
+            console.log("Winner", props.id);
             winner(props, "X")
-            return true;
+
         }
 
         if(bt4.textContent === "X" && bt5.textContent === "X" && bt6.textContent === "X"   )
         { console.log("Winner");
+            console.log("Winner", props.id);
             winner(props,"X")
-            return true;
+
         }
 
         if((bt7.textContent === "X" && bt8.textContent === "X" && bt9.textContent === "X" ))
         { console.log("Winner");
+            console.log("Winner", props.id);
             winner(props,"X")
-            return true;
+
         }
         if(bt7.textContent === "O" && bt8.textContent === "O" && bt9.textContent === "O" ) {
             console.log("Winner");
+            console.log("Winner", props.id);
             winner(props,"O")
-            return true;
+
         }
         if(bt4.textContent === "O" && bt5.textContent === "O" && bt6.textContent === "O") {
             console.log("Winner");
+            console.log("Winner", props.id);
             winner(props,"O")
-            return true;
+
         }
         if( bt1.textContent === "O" && bt2.textContent === "O" && bt3.textContent === "O" ){
             console.log("Winner");
+            console.log("Winner", props.id);
             winner(props,"O")
-            return true;
+
         }
 
         //ganhar em coluna
         if(bt1.textContent === "X" && bt4.textContent === "X" && bt7.textContent === "X" )
         { console.log("Winner");
+            console.log("Winner", props.id);
             winner(props,"X")
-            return true;
+
         }
         if(bt2.textContent === "X" && bt5.textContent === "X" && bt8.textContent === "X" )
         { console.log("Winner");
             winner(props,"X")
-            return true;
+            console.log("Winner", props.id);
+
         }
         if(bt3.textContent === "X" && bt6.textContent === "X" && bt9.textContent === "X" )
         { console.log("Winner");
             winner(props,"X")
-            return true;
+            console.log("Winner", props.id);
+
         }
 
         if(bt1.textContent === "O" && bt4.textContent === "O" && bt7.textContent === "O" ) {
             console.log("Winner");
             winner(props,"O")
-            return true;
+            console.log("Winner", props.id);
+
         }
         if(bt2.textContent === "O" && bt5.textContent === "O" && bt8.textContent === "O" ) {
             console.log("Winner");
             winner(props,"O")
-            return true;
+            console.log("Winner", props.id);
         }
         if (bt3.textContent === "O" && bt6.textContent === "O" && bt9.textContent === "O" ) {
             console.log("Winner");
+            console.log("Winner", props.id);
             winner(props,"O")
-            return true;
+
         }
 
         //ganhar nas verticais
         if(bt1.textContent === "X" && bt5.textContent === "X" && bt9.textContent === "X" )
         {  console.log("Winner");
+            console.log("Winner", props.id);
             winner(props,"X")
-            return true;
+
         }
         if(bt3.textContent === "X" && bt5.textContent === "X" && bt7.textContent === "X" )
         {  console.log("Winner");
+            console.log("Winner", props.id);
             winner(props,"X")
-            return true;
+
         }
 
         if(bt1.textContent === "O" && bt5.textContent === "O" && bt9.textContent === "O" ) {
             console.log("Winner");
+            console.log("Winner", props.id);
             winner(props,"O")
-            return true;
+
         }
         if(bt3.textContent === "O" && bt5.textContent === "O" && bt7.textContent === "O" ){
             console.log("Winner");
+            console.log("Winner", props.id);
             winner(props,"O")
-            return true;
+
+        }
+    }
+
+    function winner (props, a) {
+
+        let tab = props.id ;
+        let helper;
+        console.log(tab)
+        if(tab ==="tab1"){
+            helper = document.getElementById("t1")
+            helper.textContent = a;
+        }
+
+        else if(tab ==="tab2"){
+            helper = document.getElementById("t2")
+            helper.textContent = a;
+        }
+
+        else if(tab ==="tab3"){
+            helper = document.getElementById("t3")
+            helper.textContent = a;
+        }
+
+        else if(tab ==="tab4"){
+            helper = document.getElementById("t4")
+            helper.textContent = a;
+        }
+
+        else if(tab ==="tab5"){
+            helper = document.getElementById("t5")
+            helper.textContent = a;
+        }
+
+        else if(tab ==="tab6"){
+            helper = document.getElementById("t6")
+            helper.textContent = a;
+        }
+
+        else if(tab ==="tab7"){
+            helper = document.getElementById("t7")
+            helper.textContent = a;
+        }
+
+        else if(tab ==="tab8"){
+            helper = document.getElementById("t8")
+            helper.textContent = a;
+        }
+
+        else if(tab ==="tab9"){
+            helper = document.getElementById("t9")
+            console.log("Winner")
+            helper.textContent = a;
         }
     }
 
@@ -190,16 +228,15 @@ function Button(props) {
   return (
     <div className='Button'>
         <div className="grid-container">
-
-            <div className="grid-item">  <button id={"bt1"} onClick={XouO}> " " </button>   </div>
-            <div className="grid-item">  <button id={"bt2"} onClick={XouO}> " " </button>   </div>
-            <div className="grid-item">  <button id={"bt3"} onClick={XouO}> " " </button>   </div>
-            <div className="grid-item">  <button id={"bt4"} onClick={XouO}> " " </button>   </div>
-            <div className="grid-item">  <button id={"bt5"} onClick={XouO}> " " </button>   </div>
-            <div className="grid-item">  <button id={"bt6"} onClick={XouO}> " " </button>   </div>
-            <div className="grid-item">  <button id={"bt7"} onClick={XouO}> " " </button>   </div>
-            <div className="grid-item">  <button id={"bt8"} onClick={XouO}> " " </button>   </div>
-            <div className="grid-item">  <button id={"bt9"} onClick={XouO}> " " </button>   </div>
+            <div className="grid-item">  <button id={"bt1"} onClick={XouO}>     </button>   </div>
+            <div className="grid-item">  <button id={"bt2"} onClick={XouO}>     </button>   </div>
+            <div className="grid-item">  <button id={"bt3"} onClick={XouO}>     </button>   </div>
+            <div className="grid-item">  <button id={"bt4"} onClick={XouO}>     </button>   </div>
+            <div className="grid-item">  <button id={"bt5"} onClick={XouO}>     </button>   </div>
+            <div className="grid-item">  <button id={"bt6"} onClick={XouO}>     </button>   </div>
+            <div className="grid-item">  <button id={"bt7"} onClick={XouO}>     </button>   </div>
+            <div className="grid-item">  <button id={"bt8"} onClick={XouO}>     </button>   </div>
+            <div className="grid-item">  <button id={"bt9"} onClick={XouO}>     </button>   </div>
         </div>
     </div>
   );
