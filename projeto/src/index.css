@@ -16,15 +16,24 @@ code {
   font-size: 50px;
 }
 .tabuleiros{
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   padding-top: 10%;
 }
 
+
 .grid-container {
   display: grid;
   grid-template-columns: auto auto auto;
   grid-template-rows: auto auto auto;
+}
+
+.playerNameSections{
+  align-items: center;
+  justify-content: center;
+  padding-left: 25%;
+  padding-top: 10%;
+
 }
 

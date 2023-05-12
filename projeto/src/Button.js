@@ -4,32 +4,58 @@ import * as events from "events";
 import {tab} from "@testing-library/user-event/dist/tab";
 
 
-let user = 0;
+let user = Math.round(Math.random()) + 1;
 let buttonId;
 let qualUser ;
 let tabid;
 let objetoTabId;
 
 
+
+export function frisrplayercolors() {
+    let user1 = document.getElementById("playerOneName")
+    let user2 =document.getElementById("playerTwoName")
+
+    qualUser = user%2;
+    if(qualUser === 0){
+        user1.style.color = "white"
+        user2.style.color = "blue"
+    }else if(qualUser === 1) {
+        user1.style.color = "red"
+        user2.style.color = "white"
+    }
+}
+
+
 function Button(props) {
 
+
+
+
     function XouO (event) {
-        user ++;
+        let user1 = document.getElementById("playerOneName")
+        let user2 =document.getElementById("playerTwoName")
+
         tabid = props.id
-
-
         buttonId = event.target.id
         qualUser = user%2;
 
         if(qualUser === 0){
+            user1.style.color = "red"
+            user2.style.color = "white"
+            event.target.style.color = "red"
             event.target.textContent = "X"
             event.target.disabled = true
         }else if(qualUser === 1) {
+            user1.style.color = "white"
+            user2.style.color = "blue"
             event.target.textContent = "O"
+            event.target.style.color = "blue"
             event.target.disabled = true
         }
         console.log("play detected")
         checkWinner(props)
+        user ++;
     }
 
     function checkWinner (props) {
@@ -228,6 +254,7 @@ function Button(props) {
   return (
     <div className='Button'>
         <div className="grid-container">
+
             <div className="grid-item">  <button id={"bt1"} onClick={XouO}>     </button>   </div>
             <div className="grid-item">  <button id={"bt2"} onClick={XouO}>     </button>   </div>
             <div className="grid-item">  <button id={"bt3"} onClick={XouO}>     </button>   </div>

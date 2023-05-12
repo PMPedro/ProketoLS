@@ -17,7 +17,7 @@ root.render(
         <Player></Player>
     </div>
 
-    <div className={"tabuleiros"}>
+    <div className={"tabuleiros"} id={"tabuleirosindex"}>
         <div className={"grid-container"}>
             <div className={"grid"} id={"t1"}> <Button  id={"tab1"}/> </div>
             <div className={"grid"} id={"t2"}> <Button  id={"tab2"}/> </div>
