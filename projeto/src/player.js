@@ -41,7 +41,11 @@ function player() {
             </div>
             <div className={"playerTwoName"} id={"playerTwoName"}>
             </div>
+            <div className={"bigTabWinnerAnounce"} id={"bigTabWinnerAnounce"}>
+
+            </div>
         </div>
+
 
     )}
 

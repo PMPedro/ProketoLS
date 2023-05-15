@@ -35,7 +35,8 @@ function Button(props) {
     function XouO (event) {
         let user1 = document.getElementById("playerOneName")
         let user2 =document.getElementById("playerTwoName")
-
+        let smallWinner;
+        smallWinner = 1;
         tabid = props.id
         buttonId = event.target.id
         qualUser = user%2;
@@ -54,7 +55,15 @@ function Button(props) {
             event.target.disabled = true
         }
         console.log("play detected")
-        checkWinner(props)
+        smallWinner = checkWinner(props);
+
+        console.log("winner var = " + smallWinner)
+        if(smallWinner != 2){checkDraw(props)}
+
+        checkBigTab()
+
+
+
         user ++;
     }
 
@@ -97,6 +106,7 @@ function Button(props) {
         { console.log("Winner");
             console.log("Winner", props.id);
             winner(props, "X")
+            return 2;
 
         }
 
@@ -104,6 +114,7 @@ function Button(props) {
         { console.log("Winner");
             console.log("Winner", props.id);
             winner(props,"X")
+            return 2;
 
         }
 
@@ -111,24 +122,28 @@ function Button(props) {
         { console.log("Winner");
             console.log("Winner", props.id);
             winner(props,"X")
+            return 2;
 
         }
         if(bt7.textContent === "O" && bt8.textContent === "O" && bt9.textContent === "O" ) {
             console.log("Winner");
             console.log("Winner", props.id);
             winner(props,"O")
+            return 2;
 
         }
         if(bt4.textContent === "O" && bt5.textContent === "O" && bt6.textContent === "O") {
             console.log("Winner");
             console.log("Winner", props.id);
             winner(props,"O")
+            return 2;
 
         }
         if( bt1.textContent === "O" && bt2.textContent === "O" && bt3.textContent === "O" ){
             console.log("Winner");
             console.log("Winner", props.id);
             winner(props,"O")
+            return 2;
 
         }
 
@@ -137,18 +152,21 @@ function Button(props) {
         { console.log("Winner");
             console.log("Winner", props.id);
             winner(props,"X")
+            return 2;
 
         }
         if(bt2.textContent === "X" && bt5.textContent === "X" && bt8.textContent === "X" )
         { console.log("Winner");
             winner(props,"X")
             console.log("Winner", props.id);
+            return 2;
 
         }
         if(bt3.textContent === "X" && bt6.textContent === "X" && bt9.textContent === "X" )
         { console.log("Winner");
             winner(props,"X")
             console.log("Winner", props.id);
+            return 2;
 
         }
 
@@ -156,17 +174,20 @@ function Button(props) {
             console.log("Winner");
             winner(props,"O")
             console.log("Winner", props.id);
+            return 2;
 
         }
         if(bt2.textContent === "O" && bt5.textContent === "O" && bt8.textContent === "O" ) {
             console.log("Winner");
             winner(props,"O")
             console.log("Winner", props.id);
+            return 2;
         }
         if (bt3.textContent === "O" && bt6.textContent === "O" && bt9.textContent === "O" ) {
             console.log("Winner");
             console.log("Winner", props.id);
             winner(props,"O")
+            return 2;
 
         }
 
@@ -175,12 +196,14 @@ function Button(props) {
         {  console.log("Winner");
             console.log("Winner", props.id);
             winner(props,"X")
+            return 2;
 
         }
         if(bt3.textContent === "X" && bt5.textContent === "X" && bt7.textContent === "X" )
         {  console.log("Winner");
             console.log("Winner", props.id);
             winner(props,"X")
+            return 2;
 
         }
 
@@ -188,12 +211,14 @@ function Button(props) {
             console.log("Winner");
             console.log("Winner", props.id);
             winner(props,"O")
+            return 2 ;
 
         }
         if(bt3.textContent === "O" && bt5.textContent === "O" && bt7.textContent === "O" ){
             console.log("Winner");
             console.log("Winner", props.id);
             winner(props,"O")
+            return 2;
 
         }
     }
@@ -248,6 +273,153 @@ function Button(props) {
             console.log("Winner")
             helper.textContent = a;
         }
+    }
+
+
+    function checkDraw (props){
+
+        let idgetter = props.id;
+        let parentid;
+
+        if(idgetter === "tab1") {   parentid = document.getElementById("t1")    }
+        if(idgetter === "tab2") {   parentid = document.getElementById("t2")    }
+        if(idgetter === "tab3") {   parentid = document.getElementById("t3")    }
+        if(idgetter === "tab4") {   parentid = document.getElementById("t4")    }
+        if(idgetter === "tab5") {   parentid = document.getElementById("t5")    }
+        if(idgetter === "tab6") {   parentid = document.getElementById("t6")    }
+        if(idgetter === "tab7") {   parentid = document.getElementById("t7")    }
+        if(idgetter === "tab8") {   parentid = document.getElementById("t8")    }
+        if(idgetter === "tab9") {   parentid = document.getElementById("t9")    }
+
+        let bt1 = parentid.querySelector("#bt1");
+        let bt2 = parentid.querySelector("#bt2");
+        let bt3 = parentid.querySelector("#bt3");
+        let bt4 = parentid.querySelector("#bt4");
+        let bt5 = parentid.querySelector("#bt5");
+        let bt6 = parentid.querySelector("#bt6");
+        let bt7 = parentid.querySelector("#bt7");
+        let bt8 = parentid.querySelector("#bt8");
+        let bt9 = parentid.querySelector("#bt9");
+
+        if((idgetter.textContent !== 'X') || (idgetter.textContent !== 'O')){
+            if(
+                ( bt1.textContent === 'X' || bt1.textContent === 'O' ) &&
+                ( bt2.textContent === 'X' || bt2.textContent === 'O' ) &&
+                ( bt3.textContent === 'X' || bt3.textContent === 'O' ) &&
+                ( bt4.textContent === 'X' || bt4.textContent === 'O' ) &&
+                ( bt5.textContent === 'X' || bt5.textContent === 'O' ) &&
+                ( bt6.textContent === 'X' || bt6.textContent === 'O' ) &&
+                ( bt7.textContent === 'X' || bt7.textContent === 'O' ) &&
+                ( bt8.textContent === 'X' || bt8.textContent === 'O' ) &&
+                ( bt9.textContent === 'X' || bt9.textContent === 'O' )
+            ){
+                parentid.textContent = "empate";
+            }}
+    }
+
+    function checkBigTab() {
+
+        let t1 = document.getElementById("t1")
+        let t2 = document.getElementById("t2")
+        let t3 = document.getElementById("t3")
+        let t4 = document.getElementById("t4")
+        let t5 = document.getElementById("t5")
+        let t6 = document.getElementById("t6")
+        let t7 = document.getElementById("t7")
+        let t8 = document.getElementById("t8")
+        let t9 = document.getElementById("t9")
+
+        //Verticais
+        if((t1.textContent === 'X' && t2.textContent ==='X' && t3.textContent === 'X'))
+        {
+            posVencedor(1,"X")
+        }
+
+        else if((t1.textContent === 'O' && t2.textContent ==='O' && t3.textContent === 'O')){
+            posVencedor(1,"O")
+
+        }
+        else if((t4.textContent === 'X' && t5.textContent ==='X' && t6.textContent === 'X'))
+        {
+            posVencedor(1,"X");
+        }
+        else if((t4.textContent === 'O' && t5.textContent ==='O' && t6.textContent === 'O')) {
+            posVencedor(1,"O")
+
+        }
+        else if((t7.textContent === 'X' && t8.textContent ==='X' && t9.textContent === 'X') )
+        { posVencedor(1,"X"); }
+        else if((t7.textContent === 'O' && t8.textContent ==='O' && t9.textContent === 'O')){posVencedor(1,"O")}
+
+        //Horizontais
+        else if((t1.textContent === 'X' && t4.textContent ==='X' && t7.textContent === 'X'))
+        {posVencedor(1,"X"); }
+        else if((t1.textContent === 'O' && t4.textContent ==='O' && t7.textContent === 'O')){posVencedor(1,"O")}
+
+        else if((t2.textContent === 'X' && t5.textContent ==='X' && t8.textContent === 'X'))
+        { posVencedor(1,"X"); }
+
+        else if((t2.textContent === 'O' && t5.textContent ==='O' && t8.textContent === 'O')){
+            posVencedor(1,"O")
+        }
+
+        else if((t3.textContent === 'X' && t6.textContent ==='X' && t9.textContent === 'X') )
+        { posVencedor(1,"X"); }
+
+        else if((t3.textContent === 'O' && t6.textContent ==='O' && t9.textContent === 'O')){
+            posVencedor(1,"O")
+        }
+
+
+        //Diagonais
+        else if((t1.textContent === 'X' && t5.textContent ==='X' && t9.textContent === 'X') )
+        { posVencedor(1,"X");
+        }
+        else if(t1.textContent === 'O' && t5.textContent ==='O' && t9.textContent === 'O'){
+            posVencedor(1,"O")
+        }
+
+        else if((t3.textContent === 'X' && t5.textContent ==='X' && t7.textContent === 'X') )
+        {
+            posVencedor(1,"X");
+        }
+
+        else if((t3.textContent === 'O' && t5.textContent ==='O' && t7.textContent === 'O')){
+            posVencedor(1,"O")
+        }
+        else if(
+            ( t1.textContent === 'X' || t1.textContent === 'O' || t1.textContent === 'empate' ) &&
+            ( t2.textContent === 'X' || t2.textContent === 'O' || t2.textContent === 'empate' ) &&
+            ( t3.textContent === 'X' || t3.textContent === 'O' || t3.textContent === 'empate' ) &&
+            ( t4.textContent === 'X' || t4.textContent === 'O' || t4.textContent === 'empate' ) &&
+            ( t5.textContent === 'X' || t5.textContent === 'O' || t5.textContent === 'empate' ) &&
+            ( t6.textContent === 'X' || t6.textContent === 'O' || t6.textContent === 'empate' ) &&
+            ( t7.textContent === 'X' || t7.textContent === 'O' || t7.textContent === 'empate' ) &&
+            ( t8.textContent === 'X' || t8.textContent === 'O' || t8.textContent === 'empate' ) &&
+            ( t9.textContent === 'X' || t9.textContent === 'O' || t9.textContent === 'empate' )
+        ) { posVencedor(0, 'Empate')}
+
+
+
+
+    }
+
+    function posVencedor(numDecide, quem) {
+        let anounceWinner = document.getElementById("bigTabWinnerAnounce")
+
+        anounceWinner.textContent = "O vencedor e: Os" +  quem;
+
+        document.getElementById("t1").style.display = "none"
+        document.getElementById("t2").style.display = "none"
+        document.getElementById("t3").style.display = "none"
+        document.getElementById("t4").style.display = "none"
+        document.getElementById("t5").style.display = "none"
+        document.getElementById("t6").style.display = "none"
+        document.getElementById("t7").style.display = "none"
+        document.getElementById("t8").style.display = "none"
+        document.getElementById("t9").style.display = "none"
+
+
     }
 
 
