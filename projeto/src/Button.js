@@ -3,14 +3,11 @@ import './Css/tab.css';
 import * as events from "events";
 import {tab} from "@testing-library/user-event/dist/tab";
 
-
 let user = Math.round(Math.random()) + 1;
 let buttonId;
 let qualUser ;
 let tabid;
 let objetoTabId;
-
-
 
 export function frisrplayercolors() {
     let user1 = document.getElementById("playerOneName")
@@ -26,12 +23,8 @@ export function frisrplayercolors() {
     }
 }
 
-
 function Button(props) {
-
-
-
-
+    
     function XouO (event) {
         let user1 = document.getElementById("playerOneName")
         let user2 =document.getElementById("playerTwoName")

@@ -1,12 +1,10 @@
     import React, { useState, useEffect } from 'react';
+    import './Css/timer.css';
 
     const Timer = () => {
         const [timer1, setTimer1] = useState({ seconds: 1600, isActive: false });
         const [timer2, setTimer2] = useState({ seconds: 1600, isActive: false });
         const [timer3, setTimer3] = useState({ seconds: 10000, isActive: true });
-
-
-
 
         const startTimer = (timer) => {
             if (!timer.isActive && timer.seconds > 0) {
@@ -91,10 +89,6 @@
                 stopTimer(timer1)   }
             }
 
-
-            //console.log(user1.style.color);
-
-
             return () => {
                 clearInterval(intervalId1);
                 clearInterval(intervalId2);
@@ -102,11 +96,10 @@
             };
         }, [timer1.isActive, timer1.seconds, timer2.isActive, timer2.seconds, timer3.isActive, timer3.seconds]);
 
-
     return (
         <div className={"timer"}>
             <div className={"firstTimer"} id={"firstTimer"}>
-                {timer1.seconds}
+                 {timer1.seconds}
             </div>
             <div className={"secondTimer"} id={"secondTimer"}>
                 {timer2.seconds}
@@ -117,5 +110,3 @@
     )}
 
 export default Timer;
-
-
