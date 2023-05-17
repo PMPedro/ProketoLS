@@ -3,9 +3,11 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import Button from './Button';
+
 import player from './player';
 import reportWebVitals from './reportWebVitals';
 import Player from "./player";
+import Timer from "./timer";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
@@ -31,6 +33,10 @@ root.render(
 
         </div>
     </div>
+
+      <div className={"indexTimer"} id={"indexTimer"}>
+        <Timer />
+      </div>
 
   </React.StrictMode>
 );

@@ -1,0 +1,16 @@
+
+.timer div{
+
+    border-bottom: 2px solid yellow;
+
+}
+
+.timer{
+    position: sticky;
+    text-align: center;
+    width: 08%;
+    border-right: 2px solid yellow;
+    border-left: 2px solid yellow;
+
+}
+

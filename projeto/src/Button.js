@@ -35,6 +35,9 @@ function Button(props) {
     function XouO (event) {
         let user1 = document.getElementById("playerOneName")
         let user2 =document.getElementById("playerTwoName")
+        //console.log(document.getElementById("firstTimer").textContent)
+
+
         let smallWinner;
         smallWinner = 1;
         tabid = props.id
@@ -400,6 +403,16 @@ function Button(props) {
         ) { posVencedor(0, 'Empate')}
 
 
+        let timer1 = document.getElementById("firstTimer").textContent
+        let timer2 = document.getElementById("secondTimer").textContent
+
+        if(timer1 == 0 ){
+            posVencedor(0, 'Jogador 2, por tempo')
+        } else if( timer2 == 0){
+            posVencedor(0, 'Jogador 1, por tempo')
+        }
+
+
 
 
     }
@@ -407,7 +420,27 @@ function Button(props) {
     function posVencedor(numDecide, quem) {
         let anounceWinner = document.getElementById("bigTabWinnerAnounce")
 
-        anounceWinner.textContent = "O vencedor e: Os" +  quem;
+
+        let countx = 0;
+        let countO = 0;
+       // console.log("verificar if "+quem)
+        if(quem === 'Empate'){
+            let i= 1;
+                for(i; i<10;i++){
+                    let id = "t" + i
+                    let bt = document.getElementById(id).textContent
+                    if(bt === 'X') {
+                        countx++
+                    } else if(bt === 'O'){
+                        countO++
+                    }
+                }
+                if(countx > countO) { quem = 'X, por mais tabuleiros ganhos!'}
+                else if(countO > countx) { quem = 'O, por mais tabuleiros ganhos!'}
+                else { quem = 'Empate, pois tem o mesmo numero de tabuleiros ganhos!'}
+        }
+
+        anounceWinner.textContent = "O vencedor e: " +  quem;
 
         document.getElementById("t1").style.display = "none"
         document.getElementById("t2").style.display = "none"
