@@ -4,7 +4,6 @@ import { frisrplayercolors } from "./Button";
 
 function player() {
 
-
     function doStuff() {
         let bt1 = document.getElementById("pPlayerOneName")
         let bt2  = document.getElementById("pPlayerTwoName")
@@ -50,3 +49,4 @@ function player() {
     )}
 
 export default player;
+

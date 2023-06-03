@@ -8,7 +8,7 @@
 .timer{
     height: fit-content;
     padding-left: 10%;
-    position: fixed;
+    position: absolute;
     width: fit-content;
     border-top: 1px solid yellow;
     border-right: 1px solid yellow;

@@ -9,6 +9,20 @@ import reportWebVitals from './reportWebVitals';
 import Player from "./player";
 import Timer from "./timer";
 const root = ReactDOM.createRoot(document.getElementById('root'));
+function handleClick () {
+    let bt = document.getElementById("cpuXhumansSelector").textContent
+
+    if(bt === "Humanos"){
+        document.getElementById("cpuXhumansSelector").textContent =  "Computador"
+    }else if(bt === "Computador"){
+        document.getElementById("cpuXhumansSelector").textContent = "Humanos";
+    }
+}
+
+function reset(){
+    window.location.reload();
+}
+
 
 root.render(
   <React.StrictMode>
@@ -21,6 +35,7 @@ root.render(
 
     <div className={"tabuleiros"} id={"tabuleirosindex"}>
         <div className={"grid-container"}>
+
             <div className={"grid"} id={"t1"}> <Button  id={"tab1"}/> </div>
             <div className={"grid"} id={"t2"}> <Button  id={"tab2"}/> </div>
             <div className={"grid"} id={"t3"}> <Button  id={"tab3"}/> </div>
@@ -30,6 +45,12 @@ root.render(
             <div className={"grid"} id={"t7"}> <Button  id={"tab7"}/> </div>
             <div className={"grid"} id={"t8"}> <Button  id={"tab8"}/> </div>
             <div className={"grid"} id={"t9"}> <Button  id={"tab9"}/> </div>
+
+              <button onClick={handleClick} id={"cpuXhumansSelector"} className={"cpuXhumansSelector"}>Humanos</button>
+
+                <button onClick={reset} id="reset" className="reset">
+                    Reset
+                </button>
 
         </div>
     </div>

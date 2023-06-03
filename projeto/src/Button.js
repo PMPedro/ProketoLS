@@ -23,11 +23,15 @@ export function frisrplayercolors() {
     }
 }
 
+
+
 function Button(props) {
     
     function XouO (event) {
         let user1 = document.getElementById("playerOneName")
         let user2 =document.getElementById("playerTwoName")
+        let btCpu = document.getElementById("cpuXhumansSelector").textContent
+        console.log(btCpu)
         //console.log(document.getElementById("firstTimer").textContent)
 
 
@@ -37,13 +41,18 @@ function Button(props) {
         buttonId = event.target.id
         qualUser = user%2;
 
-        if(qualUser === 0){
+        if(qualUser === 0 || btCpu === "Computador"){
             user1.style.color = "red"
             user2.style.color = "white"
             event.target.style.color = "red"
             event.target.textContent = "X"
             event.target.disabled = true
-        }else if(qualUser === 1) {
+
+            if(btCpu === "Computador"){
+                console.log("CPU PLAYS")
+                cpuPlay();
+            }
+        }else if(qualUser === 1 && btCpu === "Humanos") {
             user1.style.color = "white"
             user2.style.color = "blue"
             event.target.textContent = "O"
@@ -62,6 +71,121 @@ function Button(props) {
 
         user ++;
     }
+
+    function cpuPlay(){
+        let randomNumber = Math.floor(Math.random() * 9) + 1;
+        let randomNumber2 = Math.floor(Math.random() * 9) + 1;
+        let a ="t"+randomNumber;
+        let tabDecider = document.getElementById(a);
+
+
+        if(tabDecider.textContent === "X" || tabDecider.textContent === "O"  ||  tabDecider.textContent === "empate") {
+           while (tabDecider.textContent === "X" || tabDecider.textContent === "O"  ||  tabDecider.textContent === "empate"){
+               randomNumber = Math.floor(Math.random() * 9) + 1;
+               a ="t"+randomNumber;
+               tabDecider = document.getElementById(a);
+           }
+        }
+
+        let b = "#bt" + randomNumber2;
+        let bt = tabDecider.querySelector(b)
+
+        if(bt.textContent === "X" || bt.textContent === "O") {
+            while(bt.textContent === "X" || bt.textContent === "O") {
+                randomNumber2 = Math.floor(Math.random() * 9) + 1;
+                b = "#bt" + randomNumber2;
+                bt = tabDecider.querySelector(b)
+
+            }
+        }
+        bt.textContent = "O";
+
+    }
+
+    function checkCpuWin(){
+        let num = 1;
+        let id ="t"+num;
+        let parent;
+
+
+        while(num > 10){
+            parent = document.getElementById(id)
+            let bt1 = parent.querySelector("#bt1");
+            let bt2 = parent.querySelector("#bt2");
+            let bt3 = parent.querySelector("#bt3");
+            let bt4 = parent.querySelector("#bt4");
+            let bt5 = parent.querySelector("#bt5");
+            let bt6 = parent.querySelector("#bt6");
+            let bt7 = parent.querySelector("#bt7");
+            let bt8 = parent.querySelector("#bt8");
+            let bt9 = parent.querySelector("#bt9");
+
+            if(bt7.textContent === "O" && bt8.textContent === "O" && bt9.textContent === "O" ) {
+                console.log("Winner");
+                console.log("Winner", props.id);
+                winnerCpu(parent,"O")
+                return 2;
+
+            }
+            if(bt4.textContent === "O" && bt5.textContent === "O" && bt6.textContent === "O") {
+                console.log("Winner");
+                console.log("Winner", props.id);
+                winnerCpu(parent,"O")
+                return 2;
+
+            }
+            if( bt1.textContent === "O" && bt2.textContent === "O" && bt3.textContent === "O" ){
+                console.log("Winner");
+                console.log("Winner", props.id);
+                winnerCpu(parent,"O")
+                return 2;
+
+            }
+
+            if(bt1.textContent === "O" && bt4.textContent === "O" && bt7.textContent === "O" ) {
+                console.log("Winner");
+                winnerCpu(parent,"O")
+                console.log("Winner", props.id);
+                return 2;
+
+            }
+            if(bt2.textContent === "O" && bt5.textContent === "O" && bt8.textContent === "O" ) {
+                console.log("Winner");
+                winnerCpu(parent,"O")
+                console.log("Winner", props.id);
+                return 2;
+            }
+            if (bt3.textContent === "O" && bt6.textContent === "O" && bt9.textContent === "O" ) {
+                console.log("Winner");
+                console.log("Winner", props.id);
+                winnerCpu(parent,"O")
+                return 2;
+
+            }
+
+            if(bt1.textContent === "O" && bt5.textContent === "O" && bt9.textContent === "O" ) {
+                console.log("Winner");
+                console.log("Winner", props.id);
+                winnerCpu(parent,"O")
+                return 2 ;
+
+            }
+            if(bt3.textContent === "O" && bt5.textContent === "O" && bt7.textContent === "O" ){
+                console.log("Winner");
+                console.log("Winner", props.id);
+                winnerCpu(parent,"O")
+                return 2;
+
+            }
+            num++;
+            id= "t"+num;
+        }
+
+
+
+
+    }
+
 
     function checkWinner (props) {
 
@@ -270,6 +394,61 @@ function Button(props) {
             helper.textContent = a;
         }
     }
+
+
+    function winnerCpu (tabid, a) {
+
+        let tab = tabid;
+        let helper;
+        console.log(tab)
+        if(tab ==="tab1"){
+            helper = document.getElementById("t1")
+            helper.textContent = a;
+        }
+
+        else if(tab ==="tab2"){
+            helper = document.getElementById("t2")
+            helper.textContent = a;
+        }
+
+        else if(tab ==="tab3"){
+            helper = document.getElementById("t3")
+            helper.textContent = a;
+        }
+
+        else if(tab ==="tab4"){
+            helper = document.getElementById("t4")
+            helper.textContent = a;
+        }
+
+        else if(tab ==="tab5"){
+            helper = document.getElementById("t5")
+            helper.textContent = a;
+        }
+
+        else if(tab ==="tab6"){
+            helper = document.getElementById("t6")
+            helper.textContent = a;
+        }
+
+        else if(tab ==="tab7"){
+            helper = document.getElementById("t7")
+            helper.textContent = a;
+        }
+
+        else if(tab ==="tab8"){
+            helper = document.getElementById("t8")
+            helper.textContent = a;
+        }
+
+        else if(tab ==="tab9"){
+            helper = document.getElementById("t9")
+            console.log("Winner")
+            helper.textContent = a;
+        }
+    }
+
+
 
 
     function checkDraw (props){
